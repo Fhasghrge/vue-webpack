@@ -1,21 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {INCREMENT} from './mutations.types' // use constant
 // 1、安装插件
 Vue.use(Vuex)
 
 // 2、创建对象
 const store = new Vuex.Store({
-  state: {
+  state: { // here state will use responsive system
     counter: 1000,
     students: [
       {id: '1', name: 'shuang', age: 19},
       {id: '2', name: 'zhang', age: 18},
       {id: '3', name: 'shi', age: 20},
       {id: '4', name: 'liu', age: 21}
-    ]
+    ],
+    info: {
+      name: 'shuai',
+      age: 32,
+      height: 1.99
+    }
   },
   mutations: { // only here you can change state in template by committing
-    increasement (state) {
+    [INCREMENT] (state) {
       state.counter++
     },
     decreasement (state) {
@@ -26,6 +32,14 @@ const store = new Vuex.Store({
     },
     increasement_count_plus (state, payload) { // get the payload to change
       state.counter += payload.num
+    },
+    res_change_demo (state) {
+      state.info.name = 'shuang' // the operation is resopnsice
+      state.info['beautiful'] = true // not responsive, the view class will not change
+      // but if use both operations, the view class will change
+      Vue.set(state.info, 'address', 'chengdu') // responsive operation add
+      delete state.info.age // no responsive
+      Vue.delete(state.info, 'age') // responsive operation
     }
   },
   actions: {

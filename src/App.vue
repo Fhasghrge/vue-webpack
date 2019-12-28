@@ -9,18 +9,24 @@
     <button @click="add_count(5)">PLUS FIVE</button>
     <button @click="add_count_plus(10)">PLUS TEN</button>
     <vuexdemo :counter = "counter"></vuexdemo>
-    <h2>I am Vuex getter demo</h2>
+    <h2 style="color: blue">I am Vuex getter demo</h2>
     <div>{{$store.getters.power_counter}}</div>
     <div>{{$store.getters.more20stu}}</div>
     <div>The students' numbers is {{$store.getters.more20length}}</div>
     <div>++++++++++++++++++++++++++++++</div>
     <div>{{$store.getters.more_target_stu(19)}}</div>
+    <h2 style="color: red">+++++Responsive State+++++</h2>
+    <div>{{$store.state.info}}</div>
+    <button @click="res_change_demo">Change Demo(responsice)</button>
   </div>
 </template>
 
 <script>
 import mainTabBar from 'components/tabbaritem/mainTabBar'
 import vuexdemo from 'components/vuexdemo'
+import {
+  INCREMENT
+} from './store/mutations.types'
 export default {
   name: 'App',
   data () {
@@ -35,7 +41,7 @@ export default {
   },
   methods: {
     counter_add () {
-      this.$store.commit('increasement') // use commit to connect $store only here
+      this.$store.commit(INCREMENT) // use commit to connect $store only here
     },
     counter_minus () {
       this.$store.commit('decreasement')
@@ -48,6 +54,9 @@ export default {
         type: 'increasement_count_plus',
         num
       }) // payload transfer to store's mutation for change
+    },
+    res_change_demo () {
+      this.$store.commit('res_change_demo')
     }
   }
 }
