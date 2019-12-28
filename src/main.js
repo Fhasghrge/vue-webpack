@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  store, // 挂载对象 so all components can use it
+  store, // 挂载对象 so all components can use it by '$'
   render: h => h(App)
 })
 // require('./assets/css/base.css')
