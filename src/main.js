@@ -15,8 +15,11 @@ new Vue({
   render: h => h(App)
 })
 // require('./assets/css/base.css')
+// global settings
+axios.defaults.baseURL = 'http://123.207.32.32:8000'
+axios.defaults.timeout = 5000
 axios({
-  url: 'http://123.207.32.32:8000/home/multidata',
+  url: '/home/multidata',
   method: 'GET'
 }).then(res => {
   console.log(res)
