@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import axios from 'axios'
+import {request} from './network/request'
 // import Vuex from 'vuex'
 
 Vue.config.productionTip = false
@@ -16,11 +17,57 @@ new Vue({
 })
 // require('./assets/css/base.css')
 // global settings
-axios.defaults.baseURL = 'http://123.207.32.32:8000'
-axios.defaults.timeout = 5000
-axios({
+
+// axios.defaults.baseURL = 'http://123.207.32.32:8000'
+// axios.defaults.timeout = 5000
+// axios({
+//   url: '/home/multidata',
+//   method: 'GET'
+// }).then(res => {
+//   console.log(res)
+// })
+
+// create axios instance for use the baseURL differently
+const instance1 = axios.create({
+  baseURL: 'http://123.207.32.32:8000', // all example default use this
+  timeout: 5000
+})
+instance1({
   url: '/home/multidata',
-  method: 'GET'
+  params: {
+    type: 'pop',
+    page: 1
+  }
 }).then(res => {
   console.log(res)
+})
+
+// const instance2 = axios.create({
+//   baseURL: 'zhangshuang.online',
+//   timeout: '5000'
+// })
+// instance2({
+//   url: 'demo',
+//   params: {
+//     sss: 'dsfdf'
+//   }
+// }).then(res => {
+//   console.log(res)
+// })
+
+// method1, not promise
+// request({
+//   url: '/home/multidata'
+// }, res => {
+//   console.log(res)
+// }, err => {
+//   console.log(err)
+// })
+
+request({
+  url: '/home/multidata'
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
 })
