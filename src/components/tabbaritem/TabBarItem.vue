@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     is_active () {
-      return this.$route.path.indexOf(this.path) !== -1
+      return this.$route.path.indexOf(this.path) !== -1 // cream
     },
     active_style () {
       return this.is_active ? {color: this.active_color} : {}

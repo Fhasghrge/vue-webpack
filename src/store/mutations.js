@@ -16,9 +16,9 @@ const mutations = { // only here you can change state in template by committing
     state.counter += payload.num
   },
   res_change_demo (state) {
-    state.info.name = 'shuang' // the operation is resopnsice
+    state.info.name = 'shuang' // this operation is resopnsice
     state.info['beautiful'] = true // not responsive, the view class will not change
-    // but if use both operations, the view class will change
+    // but if use both operations, the view class will still change
     Vue.set(state.info, 'address', 'chengdu') // responsive operation add
     delete state.info.age // no responsive
     Vue.delete(state.info, 'age') // responsive operation
