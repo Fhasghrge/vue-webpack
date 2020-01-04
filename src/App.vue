@@ -28,7 +28,16 @@
     <div>{{$store.getters.fullname2}}</div>
     <div>{{$store.getters.fullname3}}</div>
     <button @click="chang_module">Change Module</button>
-    <p style="height: 200px"></p>
+    <h4>This is the Ant Desigon Demo</h4>
+    <a-button type='primary'>Button</a-button>
+    <a-button-group>
+      <a-button type='primary'><a-icon type="step-backward" />GO</a-button>
+    </a-button-group>
+    <a-button-group>
+      <a-button type='primary' icon='cloud'/>
+      <a-button type='primary' icon='cloud-download'/>
+    </a-button-group>
+    <p style="height: 50px"></p>
   </div>
 </template>
 
