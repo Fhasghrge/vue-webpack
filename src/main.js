@@ -3,15 +3,29 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import axios from 'axios'
-import {request} from './network/request'
+import { request } from './network/request'
 // import Vuex from 'vuex'
-import {Button, Icon} from 'ant-design-vue'
+import {
+  Button,
+  Icon,
+  Row,
+  Col,
+  Layout,
+  Menu
+} from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
 Vue.config.productionTip = false
+
 // Vue.use(Vuex)
 /* eslint-disable no-new */
 // Vue.component(Button.name, Button)
 Vue.use(Button) // this is more compact
 Vue.use(Icon) // use plugins but so ugly
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Layout)
+Vue.use(Menu)
+
 new Vue({
   el: '#app',
   router,
