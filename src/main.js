@@ -11,7 +11,8 @@ import {
   Row,
   Col,
   Layout,
-  Menu
+  Menu,
+  Affix
 } from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 Vue.config.productionTip = false
@@ -25,7 +26,7 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Layout)
 Vue.use(Menu)
-
+Vue.use(Affix)
 new Vue({
   el: '#app',
   router,
